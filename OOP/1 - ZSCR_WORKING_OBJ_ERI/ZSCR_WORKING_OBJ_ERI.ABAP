@@ -62,5 +62,16 @@ START-OF-SELECTION.
 
   WRITE: / 'TRIM:', my_string->trim( ).
   WRITE: / 'UPPER:', my_string->upper( ).
-  WRITE: / 'REPLACE:', my_string->replace( pattern = 'TDD' replace = 'abap' ).
+  WRITE: / 'REPLACE:', my_string->replace( pattern = 'tdd' replace = 'abap' ).
   WRITE: / 'VALUE:', my_string->get_value( ).
+
+  DATA converted_string TYPE string.
+  CALL METHOD my_string->replace
+    EXPORTING
+      pattern      = 'tdd'
+      replace      = 'FIORI'
+    RECEIVING
+      string_value = converted_string.
+
+  WRITE: / 'Converted:', converted_string.
+  .
